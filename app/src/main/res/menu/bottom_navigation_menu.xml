@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/breakingNewsFragment"
+        android:title="@string/breaking_news"
+        android:icon="@drawable/ic_baseline_amp_stories_24"/>
+
+    <item android:id="@+id/savedNewsFragment"
+        android:title="@string/saved_news"
+        android:icon="@drawable/ic_baseline_bookmarks_24"/>
+
+    <item android:id="@+id/searchNewsFragment"
+        android:title="@string/search_news"
+        android:icon="@drawable/ic_baseline_search_for_24"/>
+
+</menu>
