@@ -26,6 +26,7 @@ class NewsActivity : AppCompatActivity() {
         // Step7: Define Retrofit Singleton class to get instance of api
         // Step8: Articles DAO setup, Entity annotation on Article class
         // Step9: Setup Database class for Room and typeconverter for Room
+        // Step10: Setup Recycler view with DiffUtil
 
 
         bottomNavigationView.setupWithNavController(newsNavHostFragment.findNavController())
