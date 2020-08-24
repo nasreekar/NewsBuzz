@@ -24,6 +24,7 @@ class NewsActivity : AppCompatActivity() {
             // install JSON to kotlin class plugin in case you need a tool to easy convert the JSON response to kotlin objects
         // Step6: define API layer (NewsAPI interface)
         // Step7: Define Retrofit Singleton class to get instance of api
+        // Step8: Articles DAO setup, Entity annotation on Article class
 
 
         bottomNavigationView.setupWithNavController(newsNavHostFragment.findNavController())

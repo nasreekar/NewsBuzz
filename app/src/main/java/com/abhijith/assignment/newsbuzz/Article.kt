@@ -1,9 +1,14 @@
 package com.abhijith.assignment.newsbuzz
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "articles")
 data class Article(
+    @PrimaryKey(autoGenerate = true)
+    var id:Int? = null, // we are setting it null because not every article have an id.
     @SerializedName("author")
     val author: String,
     @SerializedName("content")
