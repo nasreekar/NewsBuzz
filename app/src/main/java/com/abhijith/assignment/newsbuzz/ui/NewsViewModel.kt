@@ -3,6 +3,7 @@ package com.abhijith.assignment.newsbuzz.ui
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.abhijith.assignment.newsbuzz.models.Article
 import com.abhijith.assignment.newsbuzz.models.NewsResponse
 import com.abhijith.assignment.newsbuzz.repository.NewsRepository
 import com.abhijith.assignment.newsbuzz.util.Resource
@@ -65,5 +66,14 @@ class NewsViewModel(
         return  Resource.Error(response.message())
     }
 
+    fun saveArticle(article: Article) = viewModelScope.launch {
+        newsRepository.upsert(article)
+    }
+
+    fun getSavedNews() = newsRepository.getSavedNews()
+
+    fun deleteArticle(article: Article) = viewModelScope.launch {
+        newsRepository.deleteArticle(article)
+    }
 
 }
