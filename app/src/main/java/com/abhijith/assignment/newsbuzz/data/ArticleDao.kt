@@ -1,12 +1,8 @@
 package com.abhijith.assignment.newsbuzz.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.abhijith.assignment.newsbuzz.models.Article
-import retrofit2.http.DELETE
 
 // Data access object
 // Interface such as NewsAPI interface that defines the functions to access the database
@@ -25,7 +21,7 @@ interface ArticleDao {
     @Query("SELECT * FROM articles ")
     fun getAllArticles():LiveData<List<Article>>
 
-    @DELETE
+    @Delete
     suspend fun deleteArticle(article: Article)
 
 }
