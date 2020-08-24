@@ -28,6 +28,7 @@ import kotlinx.android.synthetic.main.activity_news.*
 // Step11: Setup ViewModel, Repository and ViewModelProvider factory, wrapper class around network class
 // Step12: Make network request and handle response in our recycler view
 // Step13: Implement Search functionality
+// Step14: Setup click functionality on recycler view item to open a webview to be able to save them later
 
 class NewsActivity : AppCompatActivity() {
 
