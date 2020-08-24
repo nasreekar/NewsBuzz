@@ -27,6 +27,7 @@ import kotlinx.android.synthetic.main.activity_news.*
 // Step10: Setup Recycler view with DiffUtil
 // Step11: Setup ViewModel, Repository and ViewModelProvider factory, wrapper class around network class
 // Step12: Make network request and handle response in our recycler view
+// Step13: Implement Search functionality
 
 class NewsActivity : AppCompatActivity() {
 
