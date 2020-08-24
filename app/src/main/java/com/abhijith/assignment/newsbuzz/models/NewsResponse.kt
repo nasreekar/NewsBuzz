@@ -1,4 +1,4 @@
-package com.abhijith.assignment.newsbuzz
+package com.abhijith.assignment.newsbuzz.models
 
 
 import com.google.gson.annotations.SerializedName

@@ -1,6 +1,6 @@
 package com.abhijith.assignment.newsbuzz.api
 
-import com.abhijith.assignment.newsbuzz.NewsResponse
+import com.abhijith.assignment.newsbuzz.models.NewsResponse
 import com.abhijith.assignment.newsbuzz.util.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

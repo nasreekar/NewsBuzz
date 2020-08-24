@@ -1,4 +1,4 @@
-package com.abhijith.assignment.newsbuzz
+package com.abhijith.assignment.newsbuzz.models
 
 
 import androidx.room.Entity
@@ -17,6 +17,8 @@ data class Article(
     val description: String,
     @SerializedName("publishedAt")
     val publishedAt: String,
+    // Room can handle only primitive datatypes. so we need to create a type
+    // converter class to tell room on how to interpret this Source class
     @SerializedName("source")
     val source: Source,
     @SerializedName("title")

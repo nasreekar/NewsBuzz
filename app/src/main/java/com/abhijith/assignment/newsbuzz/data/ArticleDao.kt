@@ -5,14 +5,14 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.abhijith.assignment.newsbuzz.Article
+import com.abhijith.assignment.newsbuzz.models.Article
 import retrofit2.http.DELETE
 
 // Data access object
 // Interface such as NewsAPI interface that defines the functions to access the database
 
 @Dao
-interface ArticleDAO {
+interface ArticleDao {
 
     // determines what happens when the article we want to insert already exists in the database
     // in this case we are replacing the entire article
