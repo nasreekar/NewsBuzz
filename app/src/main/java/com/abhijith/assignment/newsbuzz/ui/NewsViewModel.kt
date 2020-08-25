@@ -17,10 +17,12 @@ class NewsViewModel(
 ): ViewModel() {
 
     val breakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
-    private val breakingNewsPage = 1 // we cannot set this in fragment as it will always be 1 if we rotate the screen
+    var breakingNewsPage = 1 // we cannot set this in fragment as it will always be 1 if we rotate the screen
+    var breakingNewsResponse: NewsResponse? = null
 
     val searchNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
-    val searchNewsPage = 1
+    var searchNewsPage = 1
+    var searchNewsResponse: NewsResponse? = null
 
     // function in repository is a suspend function which means we need to call this from another
     // suspend function or coroutine
@@ -31,7 +33,7 @@ class NewsViewModel(
         getBreakingNews("in")
     }
 
-    private fun getBreakingNews(country:String) = viewModelScope.launch {
+    fun getBreakingNews(country:String) = viewModelScope.launch {
         // before we make a network call, we need to emit the loading state so that the
         // fragment can handle that
         breakingNews.postValue(Resource.Loading())
@@ -49,7 +51,15 @@ class NewsViewModel(
         // we decide whether we want to emit success state or error state
         if(response.isSuccessful) {
             response.body()?.let {
-                return Resource.Success(it)
+                breakingNewsPage++
+                if(breakingNewsResponse ==null){
+                    breakingNewsResponse = it
+                } else {
+                    val oldArticles = breakingNewsResponse?.articles
+                    val newArticles = it.articles
+                    oldArticles?.addAll(newArticles)
+                }
+                return Resource.Success(breakingNewsResponse?: it)
             }
         }
         return  Resource.Error(response.message())
@@ -60,7 +70,15 @@ class NewsViewModel(
         // we decide whether we want to emit success state or error state
         if(response.isSuccessful) {
             response.body()?.let {
-                return Resource.Success(it)
+                searchNewsPage++
+                if(searchNewsResponse ==null){
+                    searchNewsResponse = it
+                } else {
+                    val oldArticles = searchNewsResponse?.articles
+                    val newArticles = it.articles
+                    oldArticles?.addAll(newArticles)
+                }
+                return Resource.Success(searchNewsResponse?: it)
             }
         }
         return  Resource.Error(response.message())

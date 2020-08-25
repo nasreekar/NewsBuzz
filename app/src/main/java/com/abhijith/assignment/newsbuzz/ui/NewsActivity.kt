@@ -35,6 +35,7 @@ import kotlinx.android.synthetic.main.activity_news.*
 // Step15: Implement adding and deleting articles to room database
     // add the database function sin the news repository
     // Add these functions in NewsViewModel
+// Step16: Setup Pagination for responses
 
 class NewsActivity : AppCompatActivity() {
 
