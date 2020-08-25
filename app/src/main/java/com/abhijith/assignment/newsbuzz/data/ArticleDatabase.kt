@@ -2,12 +2,14 @@ package com.abhijith.assignment.newsbuzz.data
 
 import android.content.Context
 import androidx.room.*
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.abhijith.assignment.newsbuzz.models.Article
 
 // database classes for room should always be abstract
 @Database(
     entities = [Article::class],
-    version = 1
+    version = 2
 )
 @TypeConverters(Converters::class)
 abstract class ArticleDatabase: RoomDatabase() {
@@ -15,6 +17,7 @@ abstract class ArticleDatabase: RoomDatabase() {
     abstract fun getArticleDao(): ArticleDao
 
     companion object {
+
         // create an instance of article database
         @Volatile // other threads can immediately see if a thread changes this instance
         private var instance:ArticleDatabase? = null
@@ -36,6 +39,8 @@ abstract class ArticleDatabase: RoomDatabase() {
             context.applicationContext,
             ArticleDatabase::class.java,
             "article_db.db"
-        ).build()
+        )
+            .fallbackToDestructiveMigration()
+            .build()
     }
 }
