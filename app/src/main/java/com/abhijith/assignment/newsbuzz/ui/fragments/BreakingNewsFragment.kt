@@ -3,6 +3,7 @@ package com.abhijith.assignment.newsbuzz.ui.fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -43,13 +44,13 @@ class BreakingNewsFragment: Fragment(R.layout.fragment_breaking_news) {
                 is Resource.Success -> {
                     hideProgressBar()
                     response.data?.let {newsResponse ->
-                        newsAdapter.differ.submitList(newsResponse.articles)
+                        newsAdapter.differ.submitList(newsResponse.articles.toList())
                     }
                 }
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let {errorMessage ->
-                        Log.e(TAG, "An error occurred: $errorMessage")
+                        Toast.makeText(activity,"An error occurred: $errorMessage", Toast.LENGTH_LONG).show()
                     }
                 }
                 is Resource.Loading -> {

@@ -35,6 +35,9 @@ import kotlinx.android.synthetic.main.activity_news.*
 // Step15: Implement adding and deleting articles to room database
     // add the database function sin the news repository
     // Add these functions in NewsViewModel
+// Step16: Implement pagination -> check the pagination branch (Kinda hard to understand so didnt merge it here)
+// Step17: Check for internet connectivity
+    // Create an Application class to pass the app context to view model to use Connectivity manager
 
 class NewsActivity : AppCompatActivity() {
 
@@ -45,7 +48,7 @@ class NewsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_news)
 
         val repository = NewsRepository(ArticleDatabase(this))
-        val viewModelProviderFactory = NewsViewModelProviderFactory(repository)
+        val viewModelProviderFactory = NewsViewModelProviderFactory(application,repository)
 
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(NewsViewModel::class.java)
         bottomNavigationView.setupWithNavController(newsNavHostFragment.findNavController())
