@@ -36,8 +36,9 @@ This is a simple single screen app which shows the breaking news fetched from a 
 
 ### Screens
 
-| ![homescreen](app/src/main/res/mipmap-mdpi/homescreen.png) | ![SavedNews](app/src/main/res/mipmap-mdpi/SavedNews.png)| ![searchNews](app/src/main/res/mipmap-mdpi/searchNews.png) | ![ability to delete](app/src/main/res/mipmap-mdpi/ability%20to%20delete.png) |
+|![homescreen](app/src/main/res/mipmap-mdpi/homescreen.png) | ![SavedNews](app/src/main/res/mipmap-mdpi/SavedNews.png)| ![searchNews](app/src/main/res/mipmap-mdpi/searchNews.png) | ![ability to delete](app/src/main/res/mipmap-mdpi/ability%20to%20delete.png) |
 |:---:|:---:|:---:|:---:|
+
 
 ### Credits
 [Philipp Lackner's MVVM News App Playlist](https://www.youtube.com/playlist?list=PLQkwcJG4YTCRF8XiCRESq1IFFW8COlxYJ)
